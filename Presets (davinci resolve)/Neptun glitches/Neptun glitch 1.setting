@@ -1,0 +1,183 @@
+{
+	Tools = ordered() {
+		Neptunglitch = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Scanlines1",
+					Source = "Source",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Displace1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 296.082, 45.9613 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 418.333, 141.833, 209.167, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -311.167, 34.606 }
+			},
+			Tools = ordered() {
+				Scanlines1 = ofx.com.blackmagicdesign.resolvefx.ScanlineV2 {
+					Inputs = {
+						Blend = Input {
+							SourceOp = "Scanlines1Blend",
+							Source = "Value",
+						},
+						Source = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						appearanceGroup = Input { Value = 1, },
+						frequency = Input { Value = 8.78, },
+						sharpness = Input { Value = 1, },
+						angle = Input { Value = 0, },
+						width = Input { Value = 0.5, },
+						shift = Input { Value = 0, },
+						colorGroup = Input { Value = 1, },
+						color1Red = Input { Value = 1, },
+						color1Green = Input { Value = 1, },
+						color1Blue = Input { Value = 1, },
+						color2Red = Input { Value = 0, },
+						color2Green = Input { Value = 0, },
+						color2Blue = Input { Value = 0, },
+						phaseOffR = Input { Value = 0, },
+						phaseOffG = Input { Value = 0, },
+						phaseOffB = Input { Value = 0, },
+						compositeGroup = Input { Value = 1, },
+						LinesOnly = Input { Value = 0, },
+						CompositeType = Input { Value = FuID { "COMPOSITE_OVERLAY" }, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						resolvefxVersion = Input { Value = "1.1", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 49.5 } },
+				},
+				EdgeDetect1 = ofx.com.blackmagicdesign.resolvefx.EdgeDetect {
+					Inputs = {
+						Blend = Input {
+							SourceOp = "EdgeDetect1Blend",
+							Source = "Value",
+						},
+						Source = Input {
+							SourceOp = "Scanlines1",
+							Source = "Output",
+						},
+						EdgeDetectMode = Input { Value = FuID { "EDGE_DETECT_MODE_GRAYSCALE" }, },
+						RGBColorRed = Input { Value = 1, },
+						RGBColorGreen = Input { Value = 1, },
+						RGBColorBlue = Input { Value = 0, },
+						detectionGroup = Input { Value = 1, },
+						EdgeThreshold = Input { Value = 0, },
+						EdgeSmooth = Input { Value = 0.100000001490116, },
+						edgeWidth = Input { Value = 0.118, },
+						Brightness = Input { Value = 3.701, },
+						edgeGamma = Input { Value = 1, },
+						DenoiseType = Input { Value = FuID { "DENOISE_TYPE_GAUSSIAN_BLUR" }, },
+						DenoiseStrength = Input { Value = 0.200000002980232, },
+						EdgeBlur = Input { Value = 0, },
+						EdgeOverlay = Input { Value = 0, },
+						filterGroup = Input { Value = 0, },
+						filterType = Input { Value = FuID { "FilterTypeNone" }, },
+						filterScale = Input { Value = 0.25, },
+						filterWater = Input { Value = 0.5, },
+						suppression = Input { Value = FuID { "SuppressionNone" }, },
+						halfEdgeGain = Input { Value = 10, },
+						advancedGroup = Input { Value = 0, },
+						autoGain = Input { Value = 0, },
+						isClamp = Input { Value = 1, },
+						BlendAmount = Input { Value = 0, },
+						isLegacy = Input { Value = 0, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						resolvefxVersion = Input { Value = "2.0", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 321.667, 41.0152 } },
+				},
+				FastNoise1 = FastNoise {
+					Inputs = {
+						GlobalOut = Input { Value = 3, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Contrast = Input { Value = 5, },
+						LockXY = Input { Value = 0, },
+						XScale = Input { Value = 20, },
+						YScale = Input { Value = 3.78, },
+						Angle = Input { Value = 90, },
+						Type = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 450.667, -25.9697 } },
+				},
+				Displace1 = Displace {
+					Inputs = {
+						Blend = Input {
+							SourceOp = "Displace1Blend",
+							Source = "Value",
+						},
+						Input = Input {
+							SourceOp = "EdgeDetect1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "FastNoise1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 457.333, 45.5455 } },
+				}
+			},
+		},
+		Scanlines1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, RH = { 1.33333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+				[2] = { 0, LH = { 1.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		EdgeDetect1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 0.333333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+				[1] = { 0, LH = { 0.666666666666667, 0.333333333333333 }, RH = { 1.66666666666667, 0 }, Flags = { Linear = true } },
+				[3] = { 0, LH = { 2.33333333333333, 0 }, RH = { 3.33333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[4] = { 1, LH = { 3.66666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Displace1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 0.666666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[2] = { 1, LH = { 1.33333333333333, 0.666666666666667 }, RH = { 2.33333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+				[3] = { 0, LH = { 2.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		}
+	}
+}

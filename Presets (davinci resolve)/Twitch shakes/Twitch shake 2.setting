@@ -1,0 +1,210 @@
+{
+	Tools = ordered() {
+		Group1 = GroupOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\Oma\\OneDrive\\Tiedostot\\Presets (davinci resolve)\\"
+					}
+				},
+			},
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Source",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Transform2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 375.637, 59.2812 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 274.021, 68.0779, 137.01, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -373.28, -30.8662 }
+			},
+			Tools = ordered() {
+				Transform1 = ofx.com.blackmagicdesign.resolvefx.Transform {
+					Inputs = {
+						Source = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						controlMode = Input { Value = FuID { "TransformControlsSliders" }, },
+						controlReset = Input { Value = 0, },
+						controlGroup = Input { Value = 1, },
+						controlVisibility = Input { Value = FuID { "Show" }, },
+						posX = Input { Value = 0, },
+						posY = Input { Value = 0, },
+						zoom = Input {
+							SourceOp = "Transform1Zoom",
+							Source = "Value",
+						},
+						rotate = Input { Value = 0, },
+						scaleX = Input { Value = 1, },
+						scaleY = Input { Value = 1, },
+						pitch = Input { Value = 0, },
+						yaw = Input { Value = 0, },
+						flipH = Input { Value = 0, },
+						flipV = Input { Value = 0, },
+						adjustGroup = Input { Value = 0, },
+						isCrop = Input { Value = 0, },
+						cropL = Input { Value = 0, },
+						cropR = Input { Value = 0, },
+						cropT = Input { Value = 0, },
+						cropB = Input { Value = 0, },
+						edgeSoftness = Input { Value = 0, },
+						edgeRounding = Input { Value = 0, },
+						animationGroup = Input { Value = 1, },
+						serializedWarpable = Input {
+							Value = Text {
+							},
+						},
+						serializedPinnable = Input {
+							Value = Text {
+							},
+						},
+						motionBlur = Input { Value = 0, },
+						advancedGroup = Input { Value = 1, },
+						edgeBehaviour = Input { Value = FuID { "Reflect" }, },
+						CompositeType = Input { Value = FuID { "COMPOSITE_NORMAL" }, },
+						olayAntiAlias = Input { Value = 1, },
+						previewAlpha = Input { Value = 0, },
+						isLegacyCrop = Input { Value = 0, },
+						isLegacyAlphaHandling = Input { Value = 0, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						resolvefxVersion = Input { Value = "1.3", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 299.269, 39.5025 } },
+				},
+				Transform2 = ofx.com.blackmagicdesign.resolvefx.Transform {
+					Inputs = {
+						Source = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+						controlMode = Input { Value = FuID { "TransformControlsSliders" }, },
+						controlReset = Input { Value = 0, },
+						controlGroup = Input { Value = 1, },
+						controlVisibility = Input { Value = FuID { "Show" }, },
+						posX = Input {
+							SourceOp = "Shake2",
+							Source = "X",
+						},
+						posY = Input { Value = 0, },
+						zoom = Input { Value = 1, },
+						rotate = Input { Value = 0, },
+						scaleX = Input { Value = 1, },
+						scaleY = Input { Value = 1, },
+						pitch = Input { Value = 0, },
+						yaw = Input { Value = 0, },
+						flipH = Input { Value = 0, },
+						flipV = Input { Value = 0, },
+						adjustGroup = Input { Value = 0, },
+						isCrop = Input { Value = 0, },
+						cropL = Input { Value = 0, },
+						cropR = Input { Value = 0, },
+						cropT = Input { Value = 0, },
+						cropB = Input { Value = 0, },
+						edgeSoftness = Input { Value = 0, },
+						edgeRounding = Input { Value = 0, },
+						animationGroup = Input { Value = 1, },
+						serializedWarpable = Input {
+							Value = Text {
+							},
+						},
+						serializedPinnable = Input {
+							Value = Text {
+							},
+						},
+						motionBlur = Input { Value = 1, },
+						advancedGroup = Input { Value = 1, },
+						edgeBehaviour = Input { Value = FuID { "Reflect" }, },
+						CompositeType = Input { Value = FuID { "COMPOSITE_NORMAL" }, },
+						olayAntiAlias = Input { Value = 1, },
+						previewAlpha = Input { Value = 0, },
+						isLegacyCrop = Input { Value = 0, },
+						isLegacyAlphaHandling = Input { Value = 0, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						resolvefxVersion = Input { Value = "1.3", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 447.29, 41.2167 } },
+				}
+			},
+		},
+		Transform1Zoom = BezierSpline {
+			SplineColor = { Red = 254, Green = 144, Blue = 123 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\Oma\\OneDrive\\Tiedostot\\Presets (davinci resolve)\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0.841, RH = { 0, 0.841 } },
+				[11] = { 1, LH = { 0.0353062895383083, 1.00398716134926 } }
+			}
+		},
+		Shake2 = Shake {
+			Faster = true,
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\Oma\\OneDrive\\Tiedostot\\Presets (davinci resolve)\\"
+					}
+				},
+			},
+			Inputs = {
+				RandomSeed = Input { Value = 9605, },
+				Smoothness = Input { Value = 0.001, },
+				XMinimum = Input {
+					SourceOp = "ShakeonTransform2Minimum1",
+					Source = "Value",
+				},
+				XMaximum = Input {
+					Value = -0,
+					Expression = "-XMinimum",
+				},
+			},
+		},
+		ShakeonTransform2Minimum1 = BezierSpline {
+			SplineColor = { Red = 148, Green = 101, Blue = 245 },
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\Oma\\OneDrive\\Tiedostot\\Presets (davinci resolve)\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0.573, RH = { 0, -0.0535714285714286 } },
+				[12] = { 0, LH = { 2.28983498828939e-16, -0.005 } }
+			}
+		}
+	}
+}
